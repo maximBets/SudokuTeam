@@ -36,7 +36,7 @@ const board = [
   ["6", "-", "-", "3", "-", "8", "9", "-", "-"],
 ];
 
-function isSolved(board) {
+function isSolved(board){
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       if (board[i][j] === 0) {

@@ -102,6 +102,17 @@ function prettyBoard(board) {
       resArr.push(board[j][i]);
     }
   }
+
+  let resArrFinal = [];
+  for (let i = 0; i < newArr.length; i++) {
+    if (i % 3 === 0 && i !== 0) {
+      resArrFinal.push(['---------------------']);
+    }
+    resArrFinal.push(newArr[i]);
+  }
+  // console.log(resArr);
+  const gameBoard = resArrFinal.join('\n').replaceAll(',', ' ');
+  return gameBoard;
 }
 console.log(prettyBoard(solve()));
 

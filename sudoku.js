@@ -36,9 +36,9 @@ const board = [
   ["6", "-", "-", "3", "-", "8", "9", "-", "-"],
 ];
 
-function isSolved(board){
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
+function isSolved(board) {
+  for (let i = 0; i < 9; i += 1) {
+    for (let j = 0; j < 9; j += 1) {
       if (board[i][j] === 0) {
         return false; // определяет есть ли пустая ячейка
       }
@@ -46,8 +46,9 @@ function isSolved(board){
       const num = board[i][j];
       if (
         board[i].filter((el) => el === num).length > 1 || //  провекрка срок
-        board.map((row) => row[j]).filter((el) => el === num).length > 1 // проверка столюцов
+        board.map((row) => row[j]).filter((el) => el === num).length > 1
       ) {
+        // проверка столюцов
         return false;
       }
     }
@@ -55,11 +56,21 @@ function isSolved(board){
   return true;
 }
 
-function square(board, row, col) {
+function square(board, x, y) {
   let result = [];
-}
+  let row = Math.round(x / 3) * 3;
+  let column = Math.round(y / 3) * 3;
 
-// function prettyBoard(board) {}
+  for (let i = row; i < row + 3; i += 1) {
+    for (let j = column; j < column + 3; j += 1) {
+      result.push(board[i][j]);
+    }
+    return result;
+  }
+}
+square();
+
+function prettyBoard(board) {}
 
 // Экспортировать функции для использования в другом файле (например, readAndSolve.js).
 module.exports = {
